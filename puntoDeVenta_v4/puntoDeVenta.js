@@ -16,9 +16,9 @@ calcularValorTotal = function () {
     //2. Recuperar el precio como float
     precioProducto = recuperarFloat("txtPrecio");
     //3. Recuperar cantidad como int
-    cantidad = recuoerarInt("txtCantidad");
+    cantidad = recuperarInt("txtCantidad");
     //4. Recuperar el porcentaje de descuento como int
-    porcentajeDescuento = recuoerarInt("txtPorcentajeDescuento");
+    porcentajeDescuento = recuperarInt("txtPorcentajeDescuento");
 
     //4. Invocar a calcularSubtotal y el retorno guardar en la variable valorSubtotal
     valorSubtotal = calcularSubtotal(precioProducto, cantidad);
@@ -26,6 +26,7 @@ calcularValorTotal = function () {
     // los parametros cuando invoca la funcion.
     //5. Mostrar valorSubtotal en el componente lblSubtotal
     // Utilizar mostrarTexto
+    mostrarTexto("lblSubtotal", valorSubtotal);
         /*
         Caso de prueba: 
             - cantidad: 10
@@ -33,10 +34,11 @@ calcularValorTotal = function () {
             Subtotal esperado: 54
         Si el caso de prueba es exitoso, hacer un commit
      */
-    mostrarTexto("lblSubtotal", valorSubtotal);
+    
     //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
-  
+    valorDescuento = calcularValorDescuento(precioProducto, porcentajeDescuento);
     //7. Mostrar el resultado en el componente lblDescuento
+    mostrarTexto("lblDescuento", valorDescuento);
     /*
         Caso de prueba: 
             - cantidad: 10 
@@ -45,6 +47,7 @@ calcularValorTotal = function () {
             - Descuento esperado: 5.4
         Si el caso de prueba es exitoso, hacer un commit
      */
+    
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
     // El IVA debe calcularse sobre el valor del subtotal menos el descuento
     //9. Mostrar el resultado en el componente lblValorIVA    
