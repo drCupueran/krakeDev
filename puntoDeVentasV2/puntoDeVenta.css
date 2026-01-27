@@ -1,0 +1,120 @@
+body {
+  background-color: black;
+  background-size: cover;
+  margin: 0;
+}
+
+.principal {
+  display: flex;
+  background-color: rgba(240, 248, 255, 0.8);
+  margin: 0;
+  flex-direction: row;
+  margin-top: 100px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logoEscuela {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.areaResultado {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.estiloBoton {
+  width: 150px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.estiloBoton:hover {
+  background-color: white;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+}
+
+.estiloBoton:active {
+  background-color: #45a049;
+  border: none;
+  color: white;
+}
+
+.botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* 🔒 misma altura */
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.estiloBoton.total {
+  margin-left: 20px;
+}
+
+.estiloBoton.limpiar {
+  margin-right: 40px;
+}
+
+.cajaTexto {
+  font-size: 20px;
+  border-radius: 4px;
+  border: 1px solid #4CAF50;
+}
+
+.ingresoDatos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 15px; /* 🔒 espacio uniforme */
+}
+
+.tituloCampo {
+  width: 120px;
+  text-align: right;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.resultado {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 30px;
+  justify-content: space-between;
+  width: 200px; /* 🔒 ancho fijo para cuadrar resultados */
+}
+
+.error {
+  display: block;
+  min-height: 20px;   /* 🔒 reserva espacio */
+  line-height: 20px;
+  color: red;
+  font-style: italic;
+  font-size: 16px;
+  margin-top: 4px;
+}
