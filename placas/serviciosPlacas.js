@@ -42,6 +42,52 @@ validarEstructura = function (placa) {
     return errores; // 
 }
 
+//obtiene la primera letra de la placa mayuscula y retorna la provincia correspondiente caso contrario retorna null
+
+obtenerProvincia = function (placa) { 
+     let primeraLetra = placa.charAt(0); 
+
+    const provincias = {
+        'A': "Azuay",
+        'B': "Bolívar",
+        'C': "Carchi",
+        'E': "Esmeraldas",
+        'G': "Guayas",
+        'H': "Chimborazo",
+        'I': "Imbabura",
+        'L': "Loja",
+        'M': "Manabí",
+        'N': "Napo",
+        'O': "El Oro",
+        'P': "Pichincha",
+        'R': "Los Ríos",
+        'S': "Santa Elena",
+        'T': "Tungurahua",
+        'U': "Sucumbíos",
+        'X': "Cotopaxi",
+        'Y': "Pastaza",
+        'Z': "Zamora Chinchipe"
+    };
+
+    return provincias[primeraLetra] || null;
+}
+
+//usa el segundo caracter de la placa para determinar el tipo de vehiculo segun este en la pagina web si la letra no esta en la lista retorna null
+
+obtenerTipoVehiculo = function (placa) {
+    let segundaLetra = placa.charAt(1);
+    const tiposVehiculo = {
+        'A': "Automóvil particular",
+        'C': "Camioneta",
+        'D': "Camión",
+        'E': "Especial",
+        'M': "Motocicleta",
+        'P': "Público",
+        'T': "Taxi"
+    };
+    return tiposVehiculo[segundaLetra] || null;
+}
+
 
 
 
