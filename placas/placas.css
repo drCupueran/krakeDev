@@ -40,28 +40,51 @@ body {
   text-align: center;
 }
 
-/* Botón */
-.estiloBotonValidar {
-  width: 200px;
-  background-color: #4CAF50;
+.estiloBoton {
+  width: 150px;
   border: none;
   color: white;
   padding: 15px;
   text-align: center;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.estiloBotonValidar:hover {
+/* Botón VALIDAR (verde) */
+.estiloBoton.total {
+  background-color: #4CAF50;
+  margin-left: 20px;
+}
+
+.estiloBoton.total:hover {
   background-color: white;
   color: #4CAF50;
   border: 1px solid #4CAF50;
 }
 
-.estiloBotonValidar:active {
-  background-color: #45a049;
-  color: white;
+/* Botón LIMPIAR (rojo) */
+.estiloBoton.limpiar {
+  background-color: #f44336;
+  margin-right: 40px;
+}
+
+.estiloBoton.limpiar:hover {
+  background-color: white;
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+/* Contenedor de botones */
+.botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 20px;
 }
 
 /* Resultado general */

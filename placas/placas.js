@@ -11,6 +11,19 @@ mostrarResultado = function(idLabel, mensaje) {
 validarPlaca = function () {
     let placa = document.getElementById("txtPlaca").value;
 
+    if (placa === "") {
+        mostrarResultado("lblResultadoPlaca", "Ingrese una placa");
+        mostrarResultado("lblProvincia", "");
+        mostrarResultado("lblTipoVehiculo", "");
+        mostrarResultado("lblDiaPicoPlaca", "");
+
+        for (let i = 1; i <= 8; i++) {
+            mostrarResultado("lblError" + i, "");
+        }
+        return; 
+    }
+
+
     // Limpiar todos los labels de errores
     for (let i = 1; i <= 8; i++) {
         mostrarResultado("lblError" + i, "");
@@ -28,7 +41,7 @@ validarPlaca = function () {
         errores.forEach((error, i) => {
             if (error !== "") mostrarResultado("lblError" + (i + 1), error);
         });
-        return; // 🚪 Salimos aquí, no seguimos validando
+        return; 
     }
 
     // Estructura válida
@@ -62,6 +75,16 @@ validarPlaca = function () {
     mostrarResultado("lblDiaPicoPlaca", "Día de pico y placa: " + diaPicoPlaca);
 }
 
+function limpiar() {
+    document.getElementById("txtPlaca").value = "";
+    mostrarResultado("lblResultadoPlaca", "");
+    mostrarResultado("lblProvincia", "");
+    mostrarResultado("lblTipoVehiculo", "");
+    mostrarResultado("lblDiaPicoPlaca", "");
 
+    for (let i = 1; i <= 8; i++) {
+        mostrarResultado("lblError" + i, "");
+    }
+}
 
 

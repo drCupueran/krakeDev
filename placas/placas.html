@@ -20,8 +20,12 @@
         <!-- Caja de texto -->
         <input type="text" id="txtPlaca" class="cajaTexto" />
 
-        <!-- Botón -->
-        <input type="button" value="VALIDAR" class="estiloBotonValidar" onclick="validarPlaca();" />
+        <div class="botones">
+            <input type="button" value="VALIDAR" class="estiloBoton total" onclick="validarPlaca();" />
+            <input type="button" value="LIMPIAR" class="estiloBoton limpiar" onclick="limpiar();" />
+        </div>
+
+
 
         <!-- Resultado general -->
         <div id="lblResultadoPlaca" class="resultadoPlaca"></div>
