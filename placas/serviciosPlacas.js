@@ -87,8 +87,25 @@ obtenerTipoVehiculo = function (placa) {
     };
     return tiposVehiculo[segundaLetra] || null;
 }
+// lunes 1 y 2, martes 3 y 4, miercoles 5 y 6, jueves 7 y 8, viernes 9 y 0 , fin de semana y feriados no hay pico y placa
+obtenerDiasPicoYPlaca = function (placa) {
+    let ultimoDigito = placa.charAt(placa.length - 1);
 
+    const diasPicoPlaca = { 
+        '1': "Lunes",
+        '2': "Lunes",
+        '3': "Martes",  
+        '4': "Martes",
+        '5': "Miércoles",
+        '6': "Miércoles",
+        '7': "Jueves",
+        '8': "Jueves",
+        '9': "Viernes", 
+        '0': "Viernes"
+    };
 
+    return diasPicoPlaca[ultimoDigito] || null;
+}
 
 
 

@@ -17,36 +17,51 @@ validarPlaca = function () {
     }
 
     let errores = validarEstructura(placa);
-
-    // Verificar si hay errores
     let hayErrores = errores.some(error => error !== "");
 
-    if (!hayErrores) {
-        mostrarResultado("lblResultadoPlaca", "ESTRUCTURA VALIDA");
-
-        // Provincia primero
-        let provincia = obtenerProvincia(placa);
-        if (provincia) {
-            mostrarResultado("lblProvincia", "Provincia: " + provincia);
-
-            // Solo si la provincia es válida mostramos tipo de vehículo
-            let tipoVehiculo = obtenerTipoVehiculo(placa);
-            mostrarResultado("lblTipoVehiculo", tipoVehiculo ? "Tipo de vehículo: " + tipoVehiculo : "");
-
-        } else {
-            mostrarResultado("lblProvincia", "Provincia incorrecta");
-            mostrarResultado("lblTipoVehiculo", "");
-        }
-
-    } else {
+    if (hayErrores) {
         mostrarResultado("lblResultadoPlaca", "ESTRUCTURA INCORRECTA");
         mostrarResultado("lblProvincia", "");
         mostrarResultado("lblTipoVehiculo", "");
-        // Mostrar errores específicos
+        mostrarResultado("lblDiaPicoPlaca", "");
+
         errores.forEach((error, i) => {
             if (error !== "") mostrarResultado("lblError" + (i + 1), error);
         });
+        return; // 🚪 Salimos aquí, no seguimos validando
     }
+
+    // Estructura válida
+    mostrarResultado("lblResultadoPlaca", "ESTRUCTURA VALIDA");
+
+    // Provincia
+    let provincia = obtenerProvincia(placa);
+    if (!provincia) {
+        mostrarResultado("lblProvincia", "No existe provincia para la placa ingresada.");
+        mostrarResultado("lblTipoVehiculo", "");
+        mostrarResultado("lblDiaPicoPlaca", "");
+        return; // 🚪 Salimos aquí
+    }
+    mostrarResultado("lblProvincia", "Provincia: " + provincia);
+
+    // Tipo de vehículo
+    let tipoVehiculo = obtenerTipoVehiculo(placa);
+    if (!tipoVehiculo) {
+        mostrarResultado("lblTipoVehiculo", "");
+        mostrarResultado("lblDiaPicoPlaca", "");
+        return; // 🚪 Salimos aquí
+    }
+    mostrarResultado("lblTipoVehiculo", "Tipo de vehículo: " + tipoVehiculo);
+
+    // Pico y placa
+    let diaPicoPlaca = obtenerDiasPicoYPlaca(placa);
+    if (!diaPicoPlaca) {
+        mostrarResultado("lblDiaPicoPlaca", "No aplica (inválido)");
+        return;
+    }
+    mostrarResultado("lblDiaPicoPlaca", "Día de pico y placa: " + diaPicoPlaca);
 }
+
+
 
 
