@@ -21,8 +21,6 @@
         <img src="./imagenes/tijera.png" width="200px" alt="Tijera" onclick="jugar('tijera')">
     </div>
 
-
-
     <!-- Elección del computador -->
     <img id="imgComputador" src="" width="200px" alt="Elección del computador">
 
@@ -31,8 +29,15 @@
 
     <!-- Marcador -->
     <div id="marcador">
-        <div class="puntosUsuario">Usuario: <div id="puntosUsuario">0</div></div>
-        <div class="puntosComputador">Computador: <div id="puntosComputador">0</div></div>
+        <div class="puntosUsuario">Usuario: <div id="puntosUsuario">0</div>
+        </div>
+        <div class="puntosComputador">Computador: <div id="puntosComputador">0</div>
+        </div>
+    </div>
+
+    <!-- Nueva partida -->
+    <div class="estiloBoton">
+        <input type="button" value="NUEVA PARTIDA" onclick="limpiar();" />
     </div>
 
 </body>

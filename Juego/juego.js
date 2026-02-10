@@ -1,11 +1,15 @@
 let puntosUsuario = 0;
-let puntosComputadora = 0;
+let puntosComputador = 0;
+let juegoActivo = true;
 
 jugar = function (seleccionado) {
- 
+    if (!juegoActivo) {
+        return;
+    }
+
     let elemento = generarElemento();
     let ruta = generarRuta(elemento);
-    mostrarImagen("imgComputadora", ruta);
+    mostrarImagen("imgComputador", ruta);
 
     let ganador = determinarGanador(seleccionado, elemento);
 
@@ -14,26 +18,34 @@ jugar = function (seleccionado) {
     } else if (ganador == 1) {
         mostrarTexto("txtResultado", "GANASTE LA PARTIDA");
         puntosUsuario++;
-        
     } else {
         mostrarTexto("txtResultado", "PERDISTE LA PARTIDA");
-        puntosComputadora++;
+        puntosComputador++;
     }
+
     mostrarTexto("puntosUsuario", puntosUsuario);
-    mostrarTexto("puntosComputadora", puntosComputadora);
-    validarSeleccion(puntosUsuario, puntosComputadora);
-
+    mostrarTexto("puntosComputador", puntosComputador);
+    validarSeleccion();
 }
 
-validarSeleccion = function (puntosUsuario, puntosComputadora) {
+validarSeleccion = function () {
     if (puntosUsuario == 5) {
-        mostrarTexto("txtResultado", "HAS GANDO EL JUEGO");
-        puntosUsuario = 0;
-        puntosComputadora = 0;
-    } else if (puntosComputadora == 5) {
+        mostrarTexto("txtResultado", "HAS GANADO EL JUEGO");
+        juegoActivo = false;
+    } else if (puntosComputador == 5) {
         mostrarTexto("txtResultado", "EL COMPUTADOR TE HA VENCIDO");
-        puntosUsuario = 0;
-        puntosComputadora = 0;
+        juegoActivo = false; 
     }
-    return puntosUsuario, puntosComputadora;
 }
+
+limpiar = function () {
+    puntosUsuario = 0;
+    puntosComputador = 0;
+    juegoActivo = true; 
+
+    mostrarTexto("puntosUsuario", puntosUsuario);
+    mostrarTexto("puntosComputador", puntosComputador);
+    mostrarTexto("txtResultado", "");
+    mostrarImagen("imgComputador", "");
+}
+
