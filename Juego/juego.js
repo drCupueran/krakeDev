@@ -7,6 +7,9 @@ jugar = function (seleccionado) {
         return;
     }
 
+    let rutaUsuario = generarRuta(seleccionado);
+    mostrarImagen("imgUsuario", rutaUsuario);
+
     let elemento = generarElemento();
     let ruta = generarRuta(elemento);
     mostrarImagen("imgComputador", ruta);
@@ -34,18 +37,19 @@ validarSeleccion = function () {
         juegoActivo = false;
     } else if (puntosComputador == 5) {
         mostrarTexto("txtResultado", "EL COMPUTADOR TE HA VENCIDO");
-        juegoActivo = false; 
+        juegoActivo = false;
     }
 }
 
 limpiar = function () {
     puntosUsuario = 0;
     puntosComputador = 0;
-    juegoActivo = true; 
+    juegoActivo = true;
 
     mostrarTexto("puntosUsuario", puntosUsuario);
     mostrarTexto("puntosComputador", puntosComputador);
-    mostrarTexto("txtResultado", "");
+    mostrarTexto("txtResultado", "¡Empieza el juego!");
+    mostrarImagen("imgUsuario", "");
     mostrarImagen("imgComputador", "");
 }
 
